@@ -8,11 +8,11 @@
         <th>Caste</th>
         <th>Marks acquired</th>
         <th>District id</th>
-        <th>Post id</th>
         <th>Height</th>
         <th>DOB</th>
         <th>Age</th>
         <th>Gender</th>
+        <th>Allocated District id</th>
     </thead>
     <form method="post" action="{{ route('postdata') }}" id="1">
         {{ csrf_field() }}
@@ -23,11 +23,11 @@
                 <td><input type="text" style="display: none;" value="{{ $candidate->caste }}" name="caste[]">{{ $candidate->caste }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->mark }}" name="mark[]">{{ $candidate->mark }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->distid }}" name="distid[]">{{ $candidate->distid }}</td>
-                <td><input type="text" style="display: none;" value="{{ $candidate->postid }}" name="postid[]">{{ $candidate->postid }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->height }}" name="height[]">{{ $candidate->height }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->dob }}" name="dob[]">{{ $candidate->dob }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->age }}" name="age[]">{{ $candidate->age }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->gender }}</td>
+                <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->allocatedistid }}</td>
                 <td><input type="text" style="display: none;" value="1" name="status"></td>
             </tr>
         @endforeach
@@ -45,11 +45,11 @@
     <th>Caste</th>
     <th>Marks acquired</th>
     <th>District id</th>
-    <th>Post id</th>
     <th>Height</th>
     <th>DOB</th>
     <th>Age</th>
     <th>Gender</th>
+    <th>Allocated District id</th>
     </thead>
     <form >
         @foreach($candidate_gnf as $candidate)
@@ -59,11 +59,11 @@
                 <td><input type="text" style="display: none;" value="{{ $candidate->caste }}" name="caste[]">{{ $candidate->caste }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->mark }}" name="mark[]">{{ $candidate->mark }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->distid }}" name="distid[]">{{ $candidate->distid }}</td>
-                <td><input type="text" style="display: none;" value="{{ $candidate->postid }}" name="postid[]">{{ $candidate->postid }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->height }}" name="height[]">{{ $candidate->height }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->dob }}" name="dob[]">{{ $candidate->dob }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->age }}" name="age[]">{{ $candidate->age }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->gender }}</td>
+                <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->allocatedistid }}</td>
             </tr>
         @endforeach
 
@@ -80,11 +80,11 @@
     <th>Caste</th>
     <th>Marks acquired</th>
     <th>District id</th>
-    <th>Post id</th>
     <th>Height</th>
     <th>DOB</th>
     <th>Age</th>
     <th>Gender</th>
+    <th>Allocated District id</th>
     </thead>
     <form >
         @foreach($candidate_obc as $candidate)
@@ -95,11 +95,11 @@
                 <td><input type="text" style="display: none;" value="{{ $candidate->caste }}" name="caste[]">{{ $candidate->caste }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->mark }}" name="mark[]">{{ $candidate->mark }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->distid }}" name="distid[]">{{ $candidate->distid }}</td>
-                <td><input type="text" style="display: none;" value="{{ $candidate->postid }}" name="postid[]">{{ $candidate->postid }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->height }}" name="height[]">{{ $candidate->height }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->dob }}" name="dob[]">{{ $candidate->dob }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->age }}" name="age[]">{{ $candidate->age }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->gender }}</td>
+                <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->allocatedistid }}</td>
             </tr>
         @endforeach
 
@@ -116,11 +116,11 @@
     <th>Caste</th>
     <th>Marks acquired</th>
     <th>District id</th>
-    <th>Post id</th>
     <th>Height</th>
     <th>DOB</th>
     <th>Age</th>
     <th>Gender</th>
+    <th>Allocated District id</th>
     </thead>
     <form >
         @foreach($candidate_obcf as $candidate)
@@ -130,12 +130,11 @@
                 <td><input type="text" style="display: none;" value="{{ $candidate->caste }}" name="caste[]">{{ $candidate->caste }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->mark }}" name="mark[]">{{ $candidate->mark }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->distid }}" name="distid[]">{{ $candidate->distid }}</td>
-                <td><input type="text" style="display: none;" value="{{ $candidate->postid }}" name="postid[]">{{ $candidate->postid }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->height }}" name="height[]">{{ $candidate->height }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->dob }}" name="dob[]">{{ $candidate->dob }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->age }}" name="age[]">{{ $candidate->age }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->gender }}</td>
-
+                <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->allocatedistid }}</td>
             </tr>
         @endforeach
 
@@ -152,11 +151,11 @@
     <th>Caste</th>
     <th>Marks acquired</th>
     <th>District id</th>
-    <th>Post id</th>
     <th>Height</th>
     <th>DOB</th>
     <th>Age</th>
     <th>Gender</th>
+    <th>Allocated District id</th>
     </thead>
     <form >
         @foreach($candidate_st as $candidate)
@@ -166,11 +165,11 @@
                 <td><input type="text" style="display: none;" value="{{ $candidate->caste }}" name="caste[]">{{ $candidate->caste }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->mark }}" name="mark[]">{{ $candidate->mark }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->distid }}" name="distid[]">{{ $candidate->distid }}</td>
-                <td><input type="text" style="display: none;" value="{{ $candidate->postid }}" name="postid[]">{{ $candidate->postid }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->height }}" name="height[]">{{ $candidate->height }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->dob }}" name="dob[]">{{ $candidate->dob }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->age }}" name="age[]">{{ $candidate->age }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->gender }}</td>
+                <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->allocatedistid }}</td>
             </tr>
         @endforeach
 
@@ -187,11 +186,11 @@
     <th>Caste</th>
     <th>Marks acquired</th>
     <th>District id</th>
-    <th>Post id</th>
     <th>Height</th>
     <th>DOB</th>
     <th>Age</th>
     <th>Gender</th>
+    <th>Allocated District id</th>
     </thead>
     <form >
         @foreach($candidate_stf as $candidate)
@@ -201,11 +200,11 @@
                 <td><input type="text" style="display: none;" value="{{ $candidate->caste }}" name="caste[]">{{ $candidate->caste }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->mark }}" name="mark[]">{{ $candidate->mark }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->distid }}" name="distid[]">{{ $candidate->distid }}</td>
-                <td><input type="text" style="display: none;" value="{{ $candidate->postid }}" name="postid[]">{{ $candidate->postid }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->height }}" name="height[]">{{ $candidate->height }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->dob }}" name="dob[]">{{ $candidate->dob }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->age }}" name="age[]">{{ $candidate->age }}</td>
                 <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->gender }}</td>
+                <td><input type="text" style="display: none;" value="{{ $candidate->gender }}" name="gender[]">{{ $candidate->allocatedistid }}</td>
             </tr>
         @endforeach
 

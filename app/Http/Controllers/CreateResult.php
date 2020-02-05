@@ -30,11 +30,15 @@ class CreateResult extends Controller
 
         //Display qualified candidates of general male
             $candidate_gnm= DB::table('candidate')->where('gender', '=', 'm')->join('score', 'candidate.rollno', '=', 'score.rollno')->orderByDesc('mark')->orderByDesc('age')->orderByDesc('height')->get()->take($gnm);
-            foreach ($candidate_gnm as $c){
-                $candidate[] = ['rollno'=>$c->rollno];
+            if(json_decode($candidate_gnm) == null){
+                echo '';
             }
-            foreach ($candidate as $item){
-                DB::table('candidate')->where('rollno','=',$item)->update(['status'=>'gnm']);
+            foreach ($candidate_gnm as $c){
+                $candidate[] = ['rollno'=>$c->rollno,'distid'=>$c->distid];
+            }
+
+            foreach ($candidate as $item ){
+                DB::table('candidate')->where('rollno','=',$item['rollno'])->update(['status'=>'gnm','allocatedistid'=>$item['distid']]);
             }
 
 
@@ -42,56 +46,86 @@ class CreateResult extends Controller
          //Display qualified candidates of general female
 
             $candidate_gnf = DB::table('candidate')->where('gender','=','f')->join('score','candidate.rollno','=','score.rollno')->orderByDesc('mark')->orderByDesc('age')->orderByDesc('height')->get()->take($gnf);
-            foreach ($candidate_gnf as $d){
-                $candidate2[] = ['rollno'=>$d->rollno];
+            if(json_decode($candidate_gnf) == null){
+                echo '';
             }
-            foreach ($candidate2 as $item2){
-                DB::table('candidate')->where('rollno','=',$item2)->update(['status'=>'gnf']);
+            else{
+                foreach ($candidate_gnf as $d){
+                    $candidate2[] = ['rollno'=>$d->rollno,'distid'=>$d->distid];
+                }
+                foreach ($candidate2 as $item2){
+                    DB::table('candidate')->where('rollno','=',$item2['rollno'])->update(['status'=>'gnf','allocatedistid'=>$item2['distid']]);
+                }
             }
+
 
 
         //Display qualified candidates OBC male
 
             $candidate_obc = DB::table('candidate')->where('caste','=','OBC')->where('gender','=','m')->where('status','!=','gnm')->join('score','candidate.rollno','=','score.rollno')->orderByDesc('mark')->orderByDesc('age')->orderByDesc('height')->get()->take($obcm);
-            foreach ($candidate_obc as $obc){
-                $candidate3[] = ['rollno'=>$obc->rollno];
+            if(json_decode($candidate_obc) == null){
+                echo '';
             }
-            foreach($candidate3 as $item3){
-                DB::table('candidate')->where('rollno','=',$item3)->update(['status'=>'obcm']);
+            else{
+                foreach ($candidate_obc as $obc){
+                    $candidate3[] = ['rollno'=>$obc->rollno,'distid'=>$obc->distid];
+                }
+                foreach($candidate3 as $item3){
+                    DB::table('candidate')->where('rollno','=',$item3['rollno'])->update(['status'=>'obcm','allocatedistid'=>$item3['distid']]);
+                }
             }
+
 
         //Display qualified candidates OBC female
 
 
             $candidate_obcf = DB::table('candidate')->where('caste','=','OBC')->where('gender','=','f')->where('status','!=','gnf')->join('score','candidate.rollno','=','score.rollno')->orderByDesc('mark')->orderByDesc('age')->orderByDesc('height')->get()->take($obcf);
-            foreach ($candidate_obcf as $obcf) {
-                $candidate4[] = ['rollno' => $obcf->rollno];
+            if(json_decode($candidate_obcf) == null){
+                echo '';
             }
-            foreach ($candidate4 as $item4) {
-                DB::table('candidate')->where('rollno', '=', $item4)->update(['status' => 'obcf']);
+            else{
+                foreach ($candidate_obcf as $obcf) {
+                    $candidate4[] = ['rollno' => $obcf->rollno,'distid'=>$obcf->distid];
+                }
+                foreach ($candidate4 as $item4) {
+                    DB::table('candidate')->where('rollno', '=', $item4['rollno'])->update(['status' => 'obcf','allocatedistid'=>$item4['distid']]);
+                }
             }
+
 
 
         //Display qualified candidates ST/SC male
 
             $candidate_st = DB::table('candidate')->where('caste','=','ST')->where('gender','=','m')->where('status','!=','gnm')->join('score','candidate.rollno','=','score.rollno')->orderByDesc('mark')->orderByDesc('age')->orderByDesc('height')->get()->take($stm);
-            foreach ($candidate_st as $st){
-                $candidate5[] = ['rollno'=>$st->rollno];
+            if(json_decode($candidate_st) == null){
+                echo '';
             }
-            foreach($candidate5 as $item5){
-                DB::table('candidate')->where('rollno','=',$item5)->update(['status'=>'stm']);
+            else{
+                foreach ($candidate_st as $st){
+                    $candidate5[] = ['rollno'=>$st->rollno,'distid'=>$st->distid];
+                }
+                foreach($candidate5 as $item5){
+                    DB::table('candidate')->where('rollno','=',$item5['rollno'])->update(['status'=>'stm','allocatedistid'=>$item5['distid']]);
+                }
             }
+
 
 
         //Display qualified candidates ST/SC female
 
             $candidate_stf = DB::table('candidate')->where('caste','=','ST')->where('gender','=','f')->where('status','!=','gnf')->join('score','candidate.rollno','=','score.rollno')->orderByDesc('mark')->orderByDesc('age')->orderByDesc('height')->get()->take($stf);
-            foreach ($candidate_stf as $stf){
-                $candidate6[] = ['rollno'=>$stf->rollno];
+            if(json_decode($candidate_stf) == null){
+                echo '';
             }
-            foreach($candidate6 as $item6){
-                DB::table('candidate')->where('rollno','=',$item6)->update(['status'=>'stf']);
+            else{
+                foreach ($candidate_stf as $stf){
+                    $candidate6[] = ['rollno'=>$stf->rollno,'distid'=>$stf->distid];
+                }
+                foreach($candidate6 as $item6){
+                    DB::table('candidate')->where('rollno','=',$item6['rollno'])->update(['status'=>'stf','allocatedistid'=>$item6['distid']]);
+                }
             }
+
 
             return view('index', compact('candidate_gnm'), compact('candidate_gnf'))->with('candidate_obc', $candidate_obc)->with('candidate_obcf', $candidate_obcf)->with('candidate_st', $candidate_st)->with('candidate_stf', $candidate_stf);
 
